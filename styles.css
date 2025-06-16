@@ -1,0 +1,98 @@
+:root{
+    --bg: #e0e0e0;
+    --text: #333;
+    --input-bg: #f0f0f0;
+    --shadow-light: #ffffff;
+    --shadow-dark: #c8c8c8;
+    --accent: #5ab9ea;
+}
+
+body.dark{
+    --bg: #1a1a1a;
+    --text: #e0e0e0;
+    --input-bg: #2a2a2a;
+    --shadow-light: #2e2e2e;
+    --shadow-dark: #000000;
+}
+
+body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: sans-serif;
+    transition: background 0.3s, color 0.3s;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 1rem;
+}
+.gallery{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+}
+img{
+    width: 90%;
+    height: 250px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+h1{ margin-bottom: 1rem; }
+
+textarea{
+    width: 90%;
+    max-width: 500px;
+    height: 120px;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 1rem;
+    background: var(--input-bg);
+    color: var(--text);
+    border: none;
+    border-radius: 15px;
+    resize: none;
+    box-shadow: 8px 8px 15px var(--shadow-dark)
+                -8px -8px 15px var(--shadow-light);
+    transition: all 0.3s;
+}
+
+textarea:focus{
+    outline: none;
+    box-shadow: inset 6px 6px 12px var(--shadow-dark),
+                inset -6px -6px 12px var(--shadow-light);
+}
+
+button{
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text);
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 4px 4px 8px var(--shadow-dark),
+                -4px -4px 8px var(--shadow-light);
+    transition: all 0.3s;
+}
+
+button:hover{
+    background: darken(var(--accent), 5%);
+}
+
+button:active{
+    box-shadow: inset 4px 4px 8px var(--shadow-dark),
+                inset -4px -4px 8px var(--shadow-light);
+    transform: scale(0.95);
+}
+
+.toggle{
+    margin-top: 2rem;
+    cursor: pointer;
+    font-size: .9rem;
+    text-decoration: underline;
+    color: var(--accent);
+}
