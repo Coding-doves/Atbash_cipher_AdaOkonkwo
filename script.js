@@ -60,3 +60,34 @@ toggleTheme.addEventListener("click", () => {
         toggleTheme.textContent = "🌙 Dark Mode";
     }
 });
+
+// Dom manipulation for the incrementing and decrementing buttons
+let adder = document.createElement("button");
+let suber = document.createElement("button");
+let outpt = document.createElement("p");
+let div1 = document.createElement("div");
+let br = document.createElement("br");
+const f = document.getElementsByTagName("footer")[0];
+
+adder.textContent = "add";
+suber.textContent = "sub";
+
+adder.addEventListener("click", () => {
+    outpt.textContent = Number(outpt.textContent) + 1;
+});
+suber.addEventListener("click", () => {
+    outpt.textContent = Number(outpt.textContent) - 1;
+});
+
+f.getElementsByTagName("div")[0].appendChild(div1);
+div1.appendChild(adder);
+div1.appendChild(br);
+div1.appendChild(outpt);
+div1.appendChild(br);
+div1.appendChild(suber);
+div1.appendChild(br);
+div1.style.display = "flex";
+div1.style.width = "50%";
+div1.style.justifyContent = "space-between";
+outpt.style.fontSize = "2rem";
+outpt.style.fontWeight = "bold";
