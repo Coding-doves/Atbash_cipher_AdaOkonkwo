@@ -5,26 +5,30 @@ const copy = document.getElementById("copyBtn");
 const theme = document.getElementById("toggleTheme");
 const clear = document.getElementById("clear");
 
+let uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+let lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+let getHash = (alphabet = lowercase, index) => {
+        let hash = 26 - alphabet.indexOf(index) - 1;
+        return alphabet[hash];
+}
 
 inputText.addEventListener("input", function () {
     const plainText = inputText.value;
     let cipherText = "";
 
-    for (let char of plainText) {
-        if (char >= 'A' && char <= 'Z') {
-            // For uppercase letters
-            const encoded = String.fromCharCode(90 - (char.charCodeAt(0) - 65));
-            cipherText += encoded;
-        } else if (char >= 'a' && char <= 'z') {
-            // For lowercase letters
-            const encoded = String.fromCharCode(122 - (char.charCodeAt(0) - 97));
-            cipherText += encoded;
+    for (let c of plainText) {
+        if(uppercase.includes(c)) {
+            cipherText += getHash(uppercase, c);
+        } else if(lowercase.includes(c)) {
+            cipherText += getHash(lowercase, c);
         } else {
-            // Numbers, spaces, punctuation stays unchanged
-            cipherText += char;
+            cipherText += c;
         }
     }
-
     outputText.value = cipherText;
 })
 
